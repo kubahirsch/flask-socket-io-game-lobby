@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    Your room number: <p id="roomNumber"></p>
+    <div id="chat" style="border-style: solid; height: 400px; width: 200px;">
+    </div>
+    <input type="text" id="message">
+    <button onclick="sendingMessage();">wyślij</button>
+    <script>
+        var socket = io.connect("http://localhost:5000/");
+        let roomNo = 0;
+        socket.emit("joiningRandom");
+        socket.on("randomFromServer", data=>{
+            roomNo = data;
+            document.getElementById('roomNumber').innerHTML = roomNo;
+        })
+
+        function sendingMessage(){
+            message = document.getElementById('message').value;
+            socket.emit('messageFromClient', {"message":message, "roomName": roomNo});
+        }
+
+        socket.on('messageFromServer', data=>{
+            const div = document.createElement("div");
+            div.textContent = data;
+            document.getElementById('chat').append(div);
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <script>
+            var messages = {{ messages | safe }};
+            for (var i=0; i<messages.length; i++) {
+                alert(messages[i]);
+            }
+            </script>
+        {% endif %}
+    {% endwith %}
+    <p>Witam koxa</p>
+    <form action="/addroom" method="post">
+        <input type="text" id="roomName" name="roomName">
+        <button type="submit"style="width: 100px; height: 50px;" >Create room</button>
+    </form>
+    <form action="/wanttojoin" method="post">
+        <input type="text" id="joinRoom" name="roomName">
+        <button style="width: 100px; height: 50px;" type="submit">Join room</button>
+    </form>
+    
+    <br>
+    <button onclick="location.href = 'http://127.0.0.1:5000/randomroom';" style="width: 100px; height: 50px;">LOSOWY PRZECIWNIK</button><br>
+    <script>
+    </script>
+</body>
+</html>

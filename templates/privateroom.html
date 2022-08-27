@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    Room name: {{data}}
+    <div id="chat" style="border-style: solid; height: 400px; width: 200px;">
+
+    </div>
+    <input type="text" id="message">
+    <button onclick="sendMessage();" id="send_button" >wyślij</button>
+
+    <script>
+        var socket = io.connect("http://localhost:5000/");
+        
+        socket.emit('joiningRoom',{{data|safe}});
+
+        function sendMessage(){
+            message = document.getElementById("message").value;
+            socket.emit("messageFromClient", {"message": message, "roomName": {{data|safe}}});
+        }
+
+        socket.on('messageFromServer', (message)=>{
+            const div = document.createElement("div");
+            div.textContent = message;
+            document.getElementById('chat').append(div);
+        })
+
+
+    </script>
+    <script>
+    </script>
+</body>
+</html>
