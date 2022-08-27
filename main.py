@@ -4,6 +4,8 @@ import json
 import os
 import math
 
+print("Zaczynamy zabawe")
+
 secret_key = os.urandom(16).hex()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secret_key 
