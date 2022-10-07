@@ -30,4 +30,3 @@ The game lobby still doesn't work properly.
 I want to add:
 1.  You can't write anything in chat unless both players join
 2.  You can't join lobby if there are already two players 
-3.  
