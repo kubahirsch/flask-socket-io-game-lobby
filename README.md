@@ -2,7 +2,7 @@
 
 This is a basic fundament for the WORDFIGHT game
 
-Created by Kuba Hirsch
+*Created by Kuba Hirsch*
 
 ## Goal 🥅
 
