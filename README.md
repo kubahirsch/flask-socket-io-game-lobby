@@ -14,6 +14,7 @@ The project is just in my head and I thought the biggest problem will be to have
 and socket io works. Now it seems easy so I stopped making a project.
 
 ## Requirements
+python
 
 ## Installation 👩‍💻
 
