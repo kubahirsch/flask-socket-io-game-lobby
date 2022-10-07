@@ -4,16 +4,16 @@ This is a basic fundament for the WORDFIGHT game
 
 Created by Kuba Hirsch
 
-## Goal
+## Goal 🥅
 
 The goal is to create a web game for people to train and test their ability to use sophiticated words. For now it's just a simple lobby to test socket io.
 
-## Current state
+## Current state 🚢
 
 The project is just in my head and I thought the biggest problem will be to have a live score of both players. But then I discovered how web sockets 
 and socket io works. Now it seems easy so I stopped making a project.
 
-## Requirements
+## Requirements 🛒
 python
 
 ## Installation 👩‍💻
